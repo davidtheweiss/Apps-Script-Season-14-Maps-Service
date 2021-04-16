@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
+    <?!= includeExternalFile('elevateMyRun_css'); ?>
+  </head>
+  <body>
+    <nav>
+      <h1>Elevate My Run</h1>
+    </nav>
+    <div id='mainContainer'>
+      <div id='inputContainer'>
+        <input id='origin' placeholder="Starting Point">
+        <input id='destination' placeholder="Finish Line">
+        <button id='btn'>See Route</button>
+        <p id='distance'></p>
+      </div>
+      <div id='mapContainer'>
+        <h1>Map</h1>
+        <img id='map'>
+      </div>
+      <div id="chartContainer" style="height: 300px; width: 100%;">
+        <h1>Elevation</h1>
+      </div>
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <?!= includeExternalFile('elevateMyRun_js'); ?>
+  </body>
+</html>
