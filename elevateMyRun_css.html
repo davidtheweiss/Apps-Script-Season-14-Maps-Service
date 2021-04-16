@@ -1,0 +1,83 @@
+<style>
+  * {
+    font-family: 'Antonio', sans-serif;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    padding: 15px 15px;
+    box-shadow: 0 3px 5px #8a8a8a;
+  }
+
+  nav > h1 {
+    font-size: 32px;
+    margin: 0;
+  }
+
+  #inputContainer { 
+    grid-area: input;
+    padding: 20px;
+  }
+
+  #mapContainer { 
+    grid-area: map;
+  }
+
+  #chartContainer {
+    grid-area: chart;
+  }
+
+  #mainContainer {
+    display: grid;
+    grid-template-areas:
+      'input input map'
+      'chart chart chart';
+    align-items: center;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  #inputContainer > input { 
+    display: block;
+    width: 85%;
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    font-size: 26px;
+    border: none;
+    outline: none;
+    box-shadow: 
+      0 1px 2px 0 rgb(60 64 67 / 30%),
+      0 1px 3px 1px rgb(60 64 67 / 15%);
+    border-radius: 8px;
+  }
+
+  #inputContainer > input:focus { 
+    box-shadow: 
+      0 1px 3px 0 rgb(60 64 67 / 30%),
+      0 4px 8px 3px rgb(60 64 67 / 15%)
+  }
+
+  #inputContainer > button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 7px 28px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    background-color: #4eb5f1;
+    box-shadow: 
+      0 1px 2px 0 rgb(60 64 67 / 30%),
+      0 1px 3px 1px rgb(60 64 67 / 15%);
+    transition: all 0.2s;
+  }
+
+  #inputContainer > button:hover {
+    background-color:#4095c6;
+  }
+</style>
