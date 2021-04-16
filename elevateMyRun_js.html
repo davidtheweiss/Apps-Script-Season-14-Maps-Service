@@ -1,0 +1,49 @@
+<script>
+  document.getElementById('btn').addEventListener('click', _ => {
+    let origin = document.getElementById('origin').value;
+    let destination = document.getElementById('destination').value;
+    if (origin == '' || destination == '') {
+      return alert('Please fill out both the starting point and destination');
+    } else {
+      google.script.run.withSuccessHandler(displayMap).withFailureHandler(onFailure).getMapData(origin, destination);
+    }
+  })
+
+  function displayMap(data) {
+    document.getElementById('map').src = data.map;
+    document.getElementById('distance').innerText = `Total distance: ${data.distance.text}`;
+
+    let elevationResults = data.elevation['results'];
+    var chart = new CanvasJS.Chart("chartContainer", {
+      theme: "light1", // "light1", "light2", "dark1", "dark2"
+      animationEnabled: true,
+      zoomEnabled: true,
+      title: {
+        text: "Elevation Map"
+      },
+      axisX: {
+        title: "Miles"
+      },
+      axisY: {
+        title: "Feet"
+      },
+      data: [{
+        type: "area",
+        dataPoints: []
+      }]
+    });
+
+    let x, y;
+    for(let i = 0; i < elevationResults.length; i++) {
+      y = elevationResults[i].elevation * 3.281;
+      x = (data.distance.value / 1609) * (i / elevationResults.length)
+      chart.options.data[0].dataPoints.push({x: x, y: y});	
+    }
+
+    chart.render();
+  }
+
+  function onFailure(err) {
+    console.error(err);
+  }
+</script>
